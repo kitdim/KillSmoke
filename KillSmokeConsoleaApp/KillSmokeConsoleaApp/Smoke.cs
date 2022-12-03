@@ -8,5 +8,6 @@ namespace KillSmokeConsoleaApp
 {
     internal class Smoke
     {
+
     }
 }
