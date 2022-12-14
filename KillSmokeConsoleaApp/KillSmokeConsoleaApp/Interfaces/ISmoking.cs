@@ -2,9 +2,9 @@
 {
     internal interface ISmoking
     {
-        bool IsSmoke { get; set; }
-        int CountDaysWithoutСigarettуte { get; set; }
-        int CountSmokingСigarettуte { get; set; }
+        bool IsSmoke { get; }
+        int CountDaysWithoutСigarettуte { get; }
+        int CountSmokingСigarettуte { get; }
 
         void ShowSmokeInfo();
     }
