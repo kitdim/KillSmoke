@@ -4,11 +4,11 @@ namespace KillSmokeConsoleaApp.Models
 {
     internal class Smoke : ISmoking
     {
-        private Load load;
+        public Load load;
         private Save save;
-        public int CountDaysWithoutСigarettуte { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int CountSmokingСigarettуte { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool IsSmoke { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int CountDaysWithoutСigarettуte { get => load.LoadDaysWithoutСigarettуte(); }
+        public int CountSmokingСigarettуte { get => load.LoadCountSmokingСigarettуte(); }
+        public bool IsSmoke { get => load.LoadIsSmoke(); }
 
         public Smoke()
         {
