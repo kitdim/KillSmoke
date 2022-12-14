@@ -12,29 +12,32 @@ namespace KillSmokeConsoleaApp.Models
         private int _countCigaretty;
         private bool _isYouSmoke;
 
-        private int LoadIsSmoke() 
+        public bool LoadIsSmoke() 
         {
-            using (var infoCountDays = new BinaryReader(File.Open(PATH_COUNT_DAYS_WITHOUT_CIGARETTYTE, FileMode.OpenOrCreate)))
+            using (var infoisYouSmoke = new BinaryReader(File.Open(PATH_COUNT_DAYS_WITHOUT_CIGARETTYTE, FileMode.OpenOrCreate)))
             {
-                _countDays = infoCountDays.ReadInt32();
+                _isYouSmoke = infoisYouSmoke.ReadBoolean();
+                
             }
-            return _countDays;
+            return _isYouSmoke;
         }
-        private int LoadCountSmokingСigarettуte() 
+        public int LoadCountSmokingСigarettуte() 
         {
-            using (var infocountCigaretty = new BinaryReader(File.Open(PATH_COUNT_SMOKING_CIGARETTYTE_IN_DAY, FileMode.OpenOrCreate)))
+            using (var infoCountCigaretty = new BinaryReader(File.Open(PATH_COUNT_SMOKING_CIGARETTYTE_IN_DAY, FileMode.OpenOrCreate)))
             {
-                _countCigaretty = infocountCigaretty.ReadInt32();
+                _countCigaretty = infoCountCigaretty.ReadInt32();
             }
             return _countCigaretty;
         }
-        private bool LoadDaysWithoutСigarettуte() 
+        public int LoadDaysWithoutСigarettуte() 
         {
-            using (var InfoisYouSmoke = new BinaryReader(File.Open(PATH_IS_YOU_SMOKE, FileMode.OpenOrCreate)))
+            using (var infoCountsDays = new BinaryReader(File.Open(PATH_IS_YOU_SMOKE, FileMode.OpenOrCreate)))
             {
-                _isYouSmoke = InfoisYouSmoke.ReadBoolean();
+                _countDays = infoCountsDays.ReadInt32();
+
+                if (_countDays == 0) _countDays = 0;
             }
-            return _isYouSmoke;
+            return _countDays;
         }
     }
 }
