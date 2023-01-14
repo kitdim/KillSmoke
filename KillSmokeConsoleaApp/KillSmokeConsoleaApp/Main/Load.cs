@@ -1,15 +1,31 @@
-﻿namespace KillSmokeConsoleaApp.Main
+﻿using System.Text;
+
+namespace KillSmokeConsoleaApp.Main
 {
-    internal static class Load
+    internal class Load
     {
-        private const string PATH = @"data.dat";
-        public static int Loading()
+        private const string PATH = @"data\countCig.dat";
+        private static int countCig;
+
+        public static int Loading() //TODO Разобраться как сохранять данные из файла dat
         {
-            using (var reader = new BinaryReader(File.Open(PATH, FileMode.OpenOrCreate)))
+            try
             {
-                var countCig = reader.ReadInt32();
-                return countCig;
+                using (var stream = File.Open(PATH, FileMode.Open))
+                {
+                    using (var reader = new BinaryReader(stream, Encoding.UTF8, false))
+                    {
+                        countCig = reader.ReadInt32();
+                    }
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error\n");
+                Console.WriteLine(e.ToString());
+            }
+
+            return countCig;
         }
 
     }
