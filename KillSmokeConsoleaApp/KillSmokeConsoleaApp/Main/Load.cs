@@ -1,13 +1,11 @@
-﻿using System.Text;
-
-namespace KillSmokeConsoleaApp.Main
+﻿namespace KillSmokeConsoleaApp.Main
 {
     internal class Load
     {
         private const string PATH = @"countCig.dat";
         private static int countCig;
 
-        public static int Loading() 
+        public static int Loading()
         {
             if (File.Exists(PATH))
             {
@@ -18,7 +16,10 @@ namespace KillSmokeConsoleaApp.Main
                 }
                 else
                 {
-                    //TODO доделать запись из файла
+                    using (var reader = new BinaryReader(File.Open(PATH, FileMode.Open)))
+                    {
+                        countCig = reader.ReadInt32();
+                    }
                 }
             }
             else
