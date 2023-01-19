@@ -1,10 +1,8 @@
 ﻿using KillSmokeConsoleaApp.Main;
 
-Console.WriteLine("The KillSmoke shows the number of days without cigarettes.\n");
-Console.WriteLine("Statistics for today:");
-
-Console.Write("\n\nDid you smoke today?(Yes|Not): ");
-var answer = Console.ReadLine().ToLower();
+Console.WriteLine("The KillSmoke shows the number of days without cigarettes.");
+Console.Write("Did you smoke today?(Yes|Not): ");
+string answer = Console.ReadLine().ToLower();
 
 switch (answer)
 {
