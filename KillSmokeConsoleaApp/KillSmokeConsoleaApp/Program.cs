@@ -6,7 +6,8 @@ string answer = Console.ReadLine().ToLower();
 
 switch (answer)
 {
-    case "yes": 
+    case "yes":
+        
         //TODO Сделать обнуление дней без сигарет
         break;
     case "not":
