@@ -3,12 +3,32 @@
     internal class Save
     {
         private const string PATH = @"countCig.dat";
-        private static int countCig;
         public static void Saving()
         {
-            using (var reader = new BinaryWriter(File.Open(PATH, FileMode.Open)))
+            Smoke[] mySmoke =
             {
-                reader.Write(0);
+                new Smoke(0)
+            };
+            using (var writer = new BinaryWriter(File.Open(PATH, FileMode.Open)))
+            {
+                foreach(var item in mySmoke)
+                {
+                    writer.Write(item.CountDaysWithoutСigarettуte);
+                }
+            }
+        }
+        public static void Saving(int zero) 
+        {
+            Smoke[] mySmoke =
+            {
+                new Smoke(zero)
+            };
+            using (var writer = new BinaryWriter(File.Open(PATH, FileMode.Open)))
+            {
+                foreach (var item in mySmoke)
+                {
+                    writer.Write(item.CountDaysWithoutСigarettуte);
+                }
             }
         }
     }
