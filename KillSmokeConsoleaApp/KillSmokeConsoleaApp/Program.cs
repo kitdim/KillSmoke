@@ -25,5 +25,9 @@ void SetSmoke()
 
     myCig.ShowSmokeInfo();
 }
-
+void ZeroingProgress()
+{
+    Console.WriteLine("Your progress is reset.");
+    Save.Saving();
+}
 Console.ReadLine();
